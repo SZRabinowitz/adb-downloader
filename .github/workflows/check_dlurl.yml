@@ -16,7 +16,7 @@ jobs:
       run: curl -o webpage.html -L https://developer.android.com/studio/run/win-usb
 
     - name: Extract download URL
-      run: dlurl=$(grep -o -m 1 'https://dl.google.com/[^"]*' webpage.html)
+      run: dlurl=$(grep -o -m 1 'https://dl.google.com/[^"]*' webpage.html) && echo $dlurl
 
     - name: Create or update dlurl.txt
       run: |
