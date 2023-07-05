@@ -21,9 +21,8 @@ jobs:
     - name: Create or update dlurl.txt
       run: |
         echo "$dlurl" > dlurl.txt
-        echo test
-        echo $dlurl
-        dlurl=hi
+        run: dlurl=$(grep -o -m 1 'https://dl.google.com/[^"]*' webpage.html) && echo $dlurl
+
         echo $dlurl
         curl -L \
           -X PUT \
