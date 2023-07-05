@@ -21,6 +21,9 @@ jobs:
     - name: Create or update dlurl.txt
       run: |
         echo "$dlurl" > dlurl.txt
+        echo test
+        echo $dlurl
+        dlurl=hi
         echo $dlurl
         curl -L \
           -X PUT \
