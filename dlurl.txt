@@ -1,1 +1,0 @@
-https://dl.google.com/android/repository/usb_driver_r13-windows.zip
