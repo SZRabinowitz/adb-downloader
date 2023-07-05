@@ -19,9 +19,9 @@ jobs:
     - name: Extract download URL
       run: |
         dlurl=$(grep -o -m 1 'https://dl.google.com/[^"]*' webpage.html)
-        echo "$dlurl"> urls/driverurl.txt
         currentdate=$(date)
-        echo "Last Updaaed via Github Actions on $currentdate" >> urls/driverurl.txt
+        modifiedurl="${dlurl}?lastUpdated=${currentdate}"
+        echo "$modifiedurl" > urls/driverurl.txt
         
 
     - name: Update Driver URL
