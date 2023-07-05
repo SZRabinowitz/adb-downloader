@@ -17,6 +17,7 @@ jobs:
 
     - name: Extract download URL
       run: dlurl=$(grep -o -m 1 'https://dl.google.com/[^"]*' webpage.html)
+           echo "::set-output name=dlurl::$dlurl"
 
     - name: Create or update dlurl.txt
       run: |
