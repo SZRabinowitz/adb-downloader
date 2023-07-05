@@ -21,8 +21,8 @@ jobs:
     - name: Create or update dlurl.txt
       run: |
         echo "$dlurl" > dlurl.txt
-        curl -o webpage.html -L https://developer.android.com/studio/run/win-usb
-        run: dlurl=$(grep -o -m 1 'https://dl.google.com/[^"]*' webpage.html) && echo $dlurl
+        # curl -o webpage.html -L https://developer.android.com/studio/run/win-usb
+        dlurl=$(grep -o -m 1 'https://dl.google.com/[^"]*' webpage.html) && echo $dlurl
         echo hi
 
         echo $dlurl
