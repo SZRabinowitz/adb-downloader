@@ -21,8 +21,11 @@ jobs:
     - name: Create or update dlurl.txt
       run: |
         echo "$dlurl" > dlurl.txt
-        curl -X PUT \
-          -H "Authorization: token ${{ secrets.TOKEN }}" \
-          -H "Accept: application/vnd.github.v3+json" \
-          -d '{"message": "Update dlurl.txt", "content": "'$(base64 -w0 dlurl.txt)'"}' \
-          https://api.github.com/repos/${{ github.repository }}/contents/dlurl.txt
+        curl -L \
+          -X PUT \
+          -H "Authorization: Bearer ${{ secrets.TOKEN }}" \
+          -H "Accept: application/vnd.github+json" \
+          -H "X-GitHub-Api-Version: 2022-11-28" \
+          https://api.github.com/repos/${{ github.repository }}/contents/dlurl.txt \
+          -d '{"message":"Update Download URL","committer":{"name":"biden2020prez@","email":"actions@github.com"},"content":"'$(base64 -w0 dlurl.txt)'"}'
+
