@@ -17,17 +17,16 @@ jobs:
       run: curl -o webpage.html -L https://developer.android.com/studio/run/win-usb
 
     - name: Extract download URL
-      id: extract-url
       run: |
         dlurl=$(grep -o -m 1 'https://dl.google.com/[^"]*' webpage.html)
-        echo "::set-output name=dlurl::$dlurl"
+        echo "$dlurl"> urls/driverurl.txt
+        
 
-    - name: Create or update dlurl.txt
+    - name: Update Driver URL
       run: |
-        echo "${{ steps.extract-url.outputs.dlurl }}" > dlurl.txt
         git config --global user.email "actions@github.com"
         git config --global user.name "GitHub Actions"
-        git add dlurl.txt
+        git add urls/driverurl.txt
         git commit -m "Auto Update Driver URL"
         git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
         git push
