@@ -19,10 +19,11 @@ jobs:
     - name: Extract download URL
       run: |
         dlurl=$(grep -o -m 1 'https://dl.google.com/[^"]*' webpage.html)
-        currentdate=$(date)
-        modifiedurl="${dlurl}?lastUpdated=${currentdate}"
+        currentdate=$(date -u +"%a %b %e %T UTC %Y")
+        encodeddate=$(echo "$currentdate" | sed 's/ /%20/g')
+        modifiedurl="${dlurl}?lastUpdated=${encodeddate}"
         echo "$modifiedurl" > urls/driverurl.txt
-        
+                
 
     - name: Update Driver URL
       run: |
