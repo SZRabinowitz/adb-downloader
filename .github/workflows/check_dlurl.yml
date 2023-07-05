@@ -21,6 +21,10 @@ jobs:
     - name: Create or update dlurl.txt
       run: |
         echo "$dlurl" > dlurl.txt
+        echo "Contents of dlurl.txt:"
+        cat dlurl.txt
+        echo "Base64 encoded contents of dlurl.txt:"
+        base64 dlurl.txt
         curl -X PUT \
           -H "Authorization: token ${{ secrets.TOKEN }}" \
           -H "Accept: application/vnd.github.v3+json" \
