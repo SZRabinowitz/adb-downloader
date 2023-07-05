@@ -21,6 +21,7 @@ jobs:
         dlurl=$(grep -o -m 1 'https://dl.google.com/[^"]*' webpage.html)
         currentdate=$(date -u +"%a-%b-%e-%T-UTC-%Y")
         encodeddate=$(echo "$currentdate" | tr ':' '-')
+        encodeddate=$(echo "$encodeddate" | tr ':' '-')
         modifiedurl="${dlurl}?lastUpdated=${encodeddate}"
         echo "$modifiedurl" > urls/driverurl.txt
 
