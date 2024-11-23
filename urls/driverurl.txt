@@ -1,1 +1,1 @@
-https://dl.google.com/android/repository/usb_driver_r13-windows.zip?lastUpdated=Fri-Nov-22-00-55-22-UTC-2024
+https://dl.google.com/android/repository/usb_driver_r13-windows.zip?lastUpdated=Sat-Nov-23-00-53-58-UTC-2024
